@@ -9,9 +9,9 @@ fun main() {
     println("Result part 2: ${day03part2(input)}")
 }
 
-fun day03part1(input: List<String>): Int {
+fun day03part1(input: List<String>): Long {
     var colIdx = 0
-    var result = 0
+    var result = 0L
 
     input.asRows().forEach { row ->
         if (row.hasTreeAt(colIdx)) {
@@ -24,13 +24,13 @@ fun day03part1(input: List<String>): Int {
     return result
 }
 
-fun day03part2(input: List<String>): Int? {
+fun day03part2(input: List<String>): Long? {
     val rows = input.asRows()
-    var result: Int? = null
+    var result: Long? = null
 
     val slope1Result = GlobalScope.async {
         var colIdx = 0
-        var result = 0
+        var result = 0L
 
         rows.forEach { row ->
             if (row.hasTreeAt(colIdx)) {
@@ -45,7 +45,7 @@ fun day03part2(input: List<String>): Int? {
 
     val slope2Result = GlobalScope.async {
         var colIdx = 0
-        var result = 0
+        var result = 0L
 
         rows.forEach { row ->
             if (row.hasTreeAt(colIdx)) {
@@ -60,7 +60,7 @@ fun day03part2(input: List<String>): Int? {
 
     val slope3Result = GlobalScope.async {
         var colIdx = 0
-        var result = 0
+        var result = 0L
 
         rows.forEach { row ->
             if (row.hasTreeAt(colIdx)) {
@@ -75,7 +75,7 @@ fun day03part2(input: List<String>): Int? {
 
     val slope4Result = GlobalScope.async {
         var colIdx = 0
-        var result = 0
+        var result = 0L
 
         rows.forEach { row ->
             if (row.hasTreeAt(colIdx)) {
@@ -90,7 +90,7 @@ fun day03part2(input: List<String>): Int? {
 
     val slope5Result = GlobalScope.async {
         var colIdx = 0
-        var result = 0
+        var result = 0L
 
         rows.filterIndexed { idx, _ -> idx % 2 == 0 }
             .forEach { row ->
@@ -111,7 +111,9 @@ fun day03part2(input: List<String>): Int? {
             slope3Result,
             slope4Result,
             slope5Result
-        ).reduce { acc, i -> acc * i }
+        ).reduce { acc, i ->
+            acc * i
+        }
     }
 
     return result
