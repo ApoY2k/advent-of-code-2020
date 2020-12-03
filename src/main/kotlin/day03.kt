@@ -1,18 +1,15 @@
-package day03
-
-import common.readInputTextFile
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.runBlocking
 
 fun main() {
-    val input = readInputTextFile("/day03/input.txt")
-    println("Result part 1: ${part1(input)}")
-    println("Result part 2: ${part2(input)}")
+    val input = readInputTextFile("/day03.txt")
+    println("Result part 1: ${day03part1(input)}")
+    println("Result part 2: ${day03part2(input)}")
 }
 
-fun part1(input: List<String>): Int {
+fun day03part1(input: List<String>): Int {
     var colIdx = 0
     var result = 0
 
@@ -27,7 +24,7 @@ fun part1(input: List<String>): Int {
     return result
 }
 
-fun part2(input: List<String>): Int? {
+fun day03part2(input: List<String>): Int? {
     val rows = input.asRows()
     var result: Int? = null
 

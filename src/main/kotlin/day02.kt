@@ -1,15 +1,12 @@
-package day02
-
-import common.readInputTextFile
 import java.util.regex.Pattern
 
 fun main() {
-    val input = readInputTextFile("/day02/input.txt")
-    println("Result part 1: ${part1(input)}")
-    println("Result part 2: ${part2(input)}")
+    val input = readInputTextFile("/day02.txt")
+    println("Result part 1: ${day02part1(input)}")
+    println("Result part 2: ${day02part2(input)}")
 }
 
-fun part1(input: List<String>): Int {
+fun day02part1(input: List<String>): Int {
     var result = 0
 
     parseInput(input).forEach { el ->
@@ -22,7 +19,7 @@ fun part1(input: List<String>): Int {
     return result
 }
 
-fun part2(input: List<String>): Int {
+fun day02part2(input: List<String>): Int {
     var result = 0
 
     parseInput(input).forEach { el ->
