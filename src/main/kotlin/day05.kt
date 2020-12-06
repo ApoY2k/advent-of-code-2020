@@ -1,16 +1,16 @@
 fun main() {
     val input = readInputTextFile("/day05.txt")
-    println("Result part 1: ${part1(input)}")
-    println("Result part 1: ${part2(input)}")
+    println("Result part 1: ${day05part1(input)}")
+    println("Result part 2: ${day05part2(input)}")
 }
 
-fun part1(input: List<String>): Int {
+fun day05part1(input: List<String>): Int {
     return input
         .map { it.getSeatNumber() }
         .reduce { acc, i -> acc.coerceAtLeast(i) }
 }
 
-fun part2(input: List<String>): Int {
+fun day05part2(input: List<String>): Int {
     val seatNumbers = input.map { it.getSeatNumber() }.sorted()
     val gaps = seatNumbers.filterIndexed { index, seatNumber ->
         index > 0 && index < seatNumbers.lastIndex && seatNumber - seatNumbers[index - 1] > 1
